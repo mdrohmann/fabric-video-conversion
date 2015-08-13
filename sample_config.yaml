@@ -1,0 +1,17 @@
+outputdir: '/path/where/the/converted/videos/go'
+input_base: '/base/path/for/the/input/videos'
+aws_bucket: 's3://yourvideobucket.com'
+thumbnail_size: 'x480'
+videos:
+    awesome_video:   # this is the output name for the converted videos
+        input: 'Big_but_awesome_video_file.mjpeg'
+        outputs:
+            480.mp4:   # filename for this mp4 conversion
+                size: 854:480
+            480.webm:  # filename for this webm conversion
+                size: 854:480
+            compat-480.mp4:   # filename for this mp4 conversion with compatibility settings
+                size: 854:480
+                compatibility: max
+        thumbnail:   # create a thumbnail at 1 minute inside the video
+            ss: 1:00.000

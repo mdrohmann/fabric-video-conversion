@@ -1,0 +1,6 @@
+*~
+*.bak
+*.sw[onp]
+*.pyc
+*.log
+*.log.mbtree
