@@ -162,17 +162,17 @@ def upload():
 def all():
     for output, values in env.videos.iteritems():
         prefix = prep(output)
-        infile = pjoin(prefix, values['outputs'].keys()[0])
+        infile = pjoin(env.input_base, values['input'])
         for outfile, options in values['outputs'].iteritems():
             outfile = pjoin(prefix, outfile)
             if not env.overwrite and pexists(outfile):
                 continue
-            if splitext(outfile)[1] == 'mp4':
+            if splitext(outfile)[1] == '.mp4':
                 convert_mp4(
                     infile, outfile,
                     scale=options.get('size', '-1:480'),
                     compatibility=options.get('compatibility', 'none'))
-            elif splitext(outfile)[1] == 'webm':
+            elif splitext(outfile)[1] == '.webm':
                 convert_webm(
                     infile, outfile,
                     scale=options.get('size', '-1:480'))
