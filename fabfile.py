@@ -120,6 +120,7 @@ def create_thumbnails(filename, prefix, ss=None, height=None):
                 '-quality 80 ${{i}} ${{i/.png/.jpg}}; done'.format(glob=glob),
                 shell='/bin/bash'
                 )
+        local('rm {{glob}}'.format(glob=glob))
 
 
 def prep(filebase):
